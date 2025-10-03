@@ -47,6 +47,21 @@ return avg;
 
 }
 
+//Find min index
+int FindMINIndex(const int* signals, int size, int min_value) {
+    if (size <=0) {
+        return INT_MIN;
+    
+    }
+    int min_index=0;
+    for (int i=0; i < size; i++) {
+        if (signals[i]==min_value) {
+            min_index=i;
+        }
+    }
+    return min_index;
+}
+
 int main() {
     // Example signal data
     int signals[] = {5, -3, 10, 1, 8, -7, 4, 2};
@@ -55,7 +70,7 @@ int main() {
     int min_value = FindMinimum(signals, size);
     int max_value = FindMaximum(signals, size);
     int avg_value = CalculateAverage (signals,size);
-
+    int min_index = FindMINIndex(signals,size,min_value);
     
     printf("Signals: ");
     for (int i = 0; i < size; i++) {
@@ -67,6 +82,7 @@ int main() {
     printf("Minimum value: %d\n", min_value);
     printf("Maximum value: %d\n", max_value);
     printf("Average value: %d\n", avg_value);
-    
+    printf("Minimum index: %d\n", min_index);
+   
     return 0;
 }
